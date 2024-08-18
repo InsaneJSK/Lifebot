@@ -16,8 +16,8 @@ root.title("LifeBot")
 
 #Geometry
 root.geometry("850x800")
-root.minsize(850, 800)
-root.maxsize(850, 800)
+root.minsize(850, 600)
+root.maxsize(850, 600)
 
 #Lists
 quesnum = None
