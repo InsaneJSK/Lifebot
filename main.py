@@ -1,4 +1,4 @@
-"""Input any questions or queries you have for the environment. This bot will provide you the best possible answers for the same.""" 
+"""Input ny questions or queries you have for the environment. This bpt will provide you the bst possible answers for the same.""" 
 
 import tkinter as tk
 
@@ -36,11 +36,35 @@ for i in f2.readlines():
         break
 
 #Functions
-def known_questions():
-    pass
+def known_questions(questions):
+    for i in queslis:        
+        y = i.split()
+        num = y[0]
+        z = ""
+        for j in y[1::]:
+            z += f"{j} "
+        if questions == z[:-1:]:
+            quesnum = int(num)
+    return quesnum
 
-def unknown_questions():
-    pass
+def unknown_questions(question):
+    kwlist = []
+    quesword = str(question).split()
+    for i in queslis:        
+        y = i.split()
+        ctr = 0
+        for j in quesword:
+            if j in y and j.lower() not in ["what", "how", "is", "a", "the", "of", "are", "does", "can"]:
+                ctr += 1
+        kwlist.append(ctr)
+    var = max(kwlist)
+    simques = []
+    ctr2 = 0
+    for k in kwlist:
+        ctr2 += 1
+        if k == var:
+            simques.append(ctr2)
+    return simques
 
 def answers(var):
     ans = ""
@@ -92,7 +116,8 @@ def exit():
 label1 = tk.Label(text = "Welcome to the lifebot!\nAsk your questions and we\nwill answer them for you!!", font = "Gabriola 30 bold", bg = "pink", fg = "green", borderwidth = 6, relief = "ridge", padx = 20, pady = 10)
 label1.pack(fill = "both", padx = 20, pady = 50)
 b_start = tk.Button(text = "Start", font = "comicsan 15 bold", borderwidth=3, command = quesmain)
-b_start.pack()
+b_start.pack()  
+
 
 #Main-loop
 root.mainloop()
